@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+<style>
+    .container{
+               border-color: yellow;
+               border-style: solid;
+               border-width:15px;
+               background:green;
+               
+              }
+  
+    .line{
+        height:5px;
+        
+        
+        background-color:white;
+    }
+    
+    
+</style>    
+<body>  
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="lib/moment.min.js"></script>
+<div class="container">
+    <!--html put here below-->
+    <div class="row">
+        
+        <div class="col-mid-4">
+           <h1 class="title"><fancy>Work day Schedule</fancy></h1>
+        </div>
+    </div>
+    <div class="row" id="dateLine">
+     </div>
+    <div class="row mission"></div>
+    <hr id='0' class="line"></hr>
+    <div class="row mission"></div>
+    <hr id='1' class="line"></hr>
+    <div class="row mission"></div>
+    <hr id='2'class="line"></hr>
+    <div class="row mission"></div>
+    <hr id='3'class="line"></hr>
+    <div class="row mission"></div>
+    <hr id='4'class="line"></hr>
+    <div class="row mission"></div>
+    <hr id='5'class="line"></hr>
+    <div class="row mission"></div>
+    <hr id='6'class="line"></hr>
+    <div class="row mission"></div>
+    <hr id='7'class="line"></hr>
+    <div class="row mission"></div>
+    <hr id='8'class="line"></hr>
+    <div class="row mission"></div>
+    <hr id='9'class="line"></hr>
+    <div class="row mission"></div>
+    <hr id='10'class="line"></hr>
+    <div class="row mission"></div>
+    <hr id='11'class="line"></hr>
+    <div class="row mission"></div>
+    <hr id='12'class="line"></hr>
+    <div class="row mission"></div>
+    <hr id='13' class="line"></hr>
+    <div class="row mission"></div>
+    <hr id='14'class="line"></hr>
+    <div class="row mission"></div>
+    <hr id='15' class="line"></hr>
+    <div class="row mission"></div>
+    <hr id='16' class="line"></hr>
+    <div class="row mission"></div>
+    <hr id='17' class="line"></hr>
+    <div class="row mission"></div>
+    <hr id='18' class="line"></hr>
+    <div class="row mission"></div>
+    <hr id='19' class="line"></hr>
+    <div class="row mission"></div>
+    <hr id='20' class="line"></hr>
+    <div class="row mission"></div>
+    <hr id='21' class="line"></hr>
+    <div class="row mission"></div>
+    <hr id='22' class="line"></hr>
+    <div class="row mission"></div>
+    <hr id='23' class="line"></hr>
+</div>
+
+
+
+
+
+<script>
+var line=document.querySelectorAll("hr")
+
+var jack=[""];
+ var list=[]
+
+//jquery putt here
+var dateline=$("#dateLine");
+var time=$("<h1>")
+time.text(Date());
+dateline.append(time);
+var mission=$("<p>");
+$(".mission").append(mission);
+var group=document.querySelectorAll("p")
+var edit=$("<input>");
+var add=$("<button>");
+
+   
+    // line.attr("style", "height:10px");
+    add.text("add the event or renew the event ")
+
+for(i=0;i<24;i++)
+{ 
+group[i].style.color='yellow';
+group[i].textContent=i+ "o'clock" + "   to   " + (i+1) + "o'clock" ;
+group[i].style.background="brown";
+group[i].style.width="100vw";
+}
+$(".mission").append(edit)
+jack = JSON.parse(localStorage.getItem("jack"));
+for(i=0;i<24;i++){
+group[i].nextElementSibling.value=jack[i]
+}
+
+
+
+$("input").attr("size","90vw");
+$(".mission").append(add)
+
+ for(i=0;i<24;i++)
+ {
+//group[i].nextElementSibling.nextElementSibling.className=i;
+var pete=document.querySelectorAll("button");
+     pete[i].style.backgroundColor="yellow";
+
+   
+   
+ }
+
+ 
+
+$("button").on("click",function(event){
+    for(i=0;i<24;i++){
+jack[i]=group[i].nextElementSibling.value
+localStorage.setItem("jack", JSON.stringify(jack));
+    }
+})
+
+var time=(moment().format('llll'));
+var twentyfour=(moment().format('HHmm'))
+
+// alert(time);
+// alert(time[5]);
+//alert(time[6]);
+currentHour=twentyfour[0]+twentyfour[1];
+line[currentHour].style.backgroundColor="red"
+line[currentHour].style.height="70PX"
+line[currentHour].textContent="current time period"
+var addColorToLine
+for (addColorToLine=0;addColorToLine<24;addColorToLine++)
+{   
+if (addColorToLine<currentHour)
+{line[addColorToLine].style.backgroundColor="grey";
+ line[addColorToLine].style.height="30px";
+ line[addColorToLine].textContent="time period in the past";
+}
+if (addColorToLine>currentHour)
+{
+ line[addColorToLine].style.backgroundColor="yellow";
+ line[addColorToLine].style.height="30px";
+ line[addColorToLine].textContent="time period in the future";
+}
+}
+
+
+//line.value.size="30px"
+
+
+
+</script>
+
+</body>
+
+</html>
