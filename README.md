@@ -5,4 +5,4 @@
 (4)the list of the schedule will tell user that when it is current time, time in past and time in the future.
 (5)the background color is some kind of John Deere style.
 (6)user can comeback anytime for changing the event and delete the event sicne they are stored inside the local storage
-
+(7)the lib file contain the component and code for purpose of displaying time component on webpage
