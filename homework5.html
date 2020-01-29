@@ -97,7 +97,7 @@
 var line=document.querySelectorAll("hr")
 
 var jack=[""];
- var list=[]
+ 
 
 //jquery putt here
 var dateline=$("#dateLine");
@@ -123,19 +123,19 @@ group[i].style.width="100vw";
 }
 $(".mission").append(edit)
 jack = JSON.parse(localStorage.getItem("jack"));
-for(i=0;i<24;i++){
-group[i].nextElementSibling.value=jack[i]
+if (jack!==null){
+for(i=0;i<24;i++)
+    group[i].nextElementSibling.value=jack[i]
 }
-
 
 
 $("input").attr("size","90vw");
 $(".mission").append(add)
-
+var pete
  for(i=0;i<24;i++)
  {
-//group[i].nextElementSibling.nextElementSibling.className=i;
-var pete=document.querySelectorAll("button");
+     group[i].nextElementSibling.nextElementSibling.className=i;
+     pete=document.querySelectorAll("button");
      pete[i].style.backgroundColor="yellow";
 
    
